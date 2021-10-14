@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Limbah;
 use DataTables;
   
 class UserController extends Controller
@@ -31,5 +32,24 @@ class UserController extends Controller
                     ->make(true);
         }
         return view('users');   
+    }
+    public function dash(Request $request)
+    {
+      if ($request->ajax()) {
+         $data = limbah::select('*');
+         return Datatables::of($data)
+                 ->addIndexColumn()
+                 ->editColumn('created_at', function ($row) {
+                    return [
+                       'display' => e($row->created_at->format('d/m/Y')),
+                       'timestamp' => $row->created_at->timestamp
+                    ];
+                 })
+                 ->filterColumn('datetime', function ($query, $keyword) {
+                    $query->whereRaw("DATE_FORMAT(datetime,'%d/%m/%Y') LIKE ?", ["%$keyword%"]);
+                 })
+                 ->make(true);
+     }
+       return view('dashboad');
     }
 }

@@ -27,7 +27,7 @@ class LimbahController extends Controller
                         ];
                      })
                      ->filterColumn('datetime', function ($query, $keyword) {
-                        $query->whereRaw("DATE_FORMAT(created_at,'%d/%m/%Y') LIKE ?", ["%$keyword%"]);
+                        $query->whereRaw("DATE_FORMAT(datetime,'%d/%m/%Y') LIKE ?", ["%$keyword%"]);
                      })
                     ->make(true);
         }
