@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+    meter {
+  width: 100%;
+  height: 25px;
+}
+</style>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -10,7 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{!! asset('sbadmin/css/styles.css') !!}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    
+        <style type='text/css'></style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
     
@@ -46,7 +52,8 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
+        
+          <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -75,7 +82,124 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
-                        
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Area Chart Example
+                                    </div>
+                                    
+
+                                    <div class="card-body">
+                                    <div class="col mb-2">
+                                    <select class="custom-select-sm form-control-sm" id="leave" onchange="leaveChange()">
+                                        <option value="{{$inflow[12]->In_Flowrate}},{{$inflow[11]->In_Flowrate}},{{$inflow[10]->In_Flowrate}},{{$inflow[9]->In_Flowrate}},{{$inflow[8]->In_Flowrate}},{{$inflow[7]->In_Flowrate}},{{$inflow[6]->In_Flowrate}},{{$inflow[5]->In_Flowrate}},{{$inflow[4]->In_Flowrate}},{{$inflow[3]->In_Flowrate}},{{$inflow[2]->In_Flowrate}},{{$inflow[1]->In_Flowrate}},{{$inflow[0]->In_Flowrate}}">In_Flowrate</option>
+                                        <option value="{{$inflow[12]->Out_Flowrate}},{{$inflow[11]->Out_Flowrate}},{{$inflow[10]->Out_Flowrate}},{{$inflow[9]->Out_Flowrate}},{{$inflow[8]->Out_Flowrate}},{{$inflow[7]->Out_Flowrate}},{{$inflow[6]->Out_Flowrate}},{{$inflow[5]->Out_Flowrate}},{{$inflow[4]->Out_Flowrate}},{{$inflow[3]->Out_Flowrate}},{{$inflow[2]->Out_Flowrate}},{{$inflow[1]->Out_Flowrate}},{{$inflow[0]->Out_Flowrate}}">Out_Flowrate</option>
+                                        <option value="{{$inflow[12]->In_Tabulizer}},{{$inflow[11]->In_Tabulizer}},{{$inflow[10]->In_Tabulizer}},{{$inflow[9]->In_Tabulizer}},{{$inflow[8]->In_Tabulizer}},{{$inflow[7]->In_Tabulizer}},{{$inflow[6]->In_Tabulizer}},{{$inflow[5]->In_Tabulizer}},{{$inflow[4]->In_Tabulizer}},{{$inflow[3]->In_Tabulizer}},{{$inflow[2]->In_Tabulizer}},{{$inflow[1]->In_Tabulizer}},{{$inflow[0]->In_Tabulizer}}">In_Tabulizer</option>
+                                        <option value="{{$inflow[12]->Out_Tabulizer}},{{$inflow[11]->Out_Tabulizer}},{{$inflow[10]->Out_Tabulizer}},{{$inflow[9]->Out_Tabulizer}},{{$inflow[8]->Out_Tabulizer}},{{$inflow[7]->Out_Tabulizer}},{{$inflow[6]->Out_Tabulizer}},{{$inflow[5]->Out_Tabulizer}},{{$inflow[4]->Out_Tabulizer}},{{$inflow[3]->Out_Tabulizer}},{{$inflow[2]->Out_Tabulizer}},{{$inflow[1]->Out_Tabulizer}},{{$inflow[0]->Out_Tabulizer}}">Out_Tabulizer</option>
+                                        <option value="{{$inflow[12]->Turbidity}},{{$inflow[11]->Turbidity}},{{$inflow[10]->Turbidity}},{{$inflow[9]->Turbidity}},{{$inflow[8]->Turbidity}},{{$inflow[7]->Turbidity}},{{$inflow[6]->Turbidity}},{{$inflow[5]->Turbidity}},{{$inflow[4]->Turbidity}},{{$inflow[3]->Turbidity}},{{$inflow[2]->Turbidity}},{{$inflow[1]->Turbidity}},{{$inflow[0]->Turbidity}}">Turbidity</option>
+                                        <option value="{{$inflow[12]->NH3}},{{$inflow[11]->NH3}},{{$inflow[10]->NH3}},{{$inflow[9]->NH3}},{{$inflow[8]->NH3}},{{$inflow[7]->NH3}},{{$inflow[6]->NH3}},{{$inflow[5]->NH3}},{{$inflow[4]->NH3}},{{$inflow[3]->NH3}},{{$inflow[2]->NH3}},{{$inflow[1]->NH3}},{{$inflow[0]->NH3}}">NH3</option>
+                                        <option value="{{$inflow[12]->PH_out}},{{$inflow[11]->PH_out}},{{$inflow[10]->PH_out}},{{$inflow[9]->PH_out}},{{$inflow[8]->PH_out}},{{$inflow[7]->PH_out}},{{$inflow[6]->PH_out}},{{$inflow[5]->PH_out}},{{$inflow[4]->PH_out}},{{$inflow[3]->PH_out}},{{$inflow[2]->PH_out}},{{$inflow[1]->PH_out}},{{$inflow[0]->PH_out}}">PH_out</option>
+                                        <option value="{{$inflow[12]->any1}},{{$inflow[11]->any1}},{{$inflow[10]->any1}},{{$inflow[9]->any1}},{{$inflow[8]->any1}},{{$inflow[7]->any1}},{{$inflow[6]->any1}},{{$inflow[5]->any1}},{{$inflow[4]->any1}},{{$inflow[3]->any1}},{{$inflow[2]->any1}},{{$inflow[1]->any1}},{{$inflow[0]->any1}}">any1</option>
+                                        <option value="{{$inflow[12]->any2}},{{$inflow[11]->any2}},{{$inflow[10]->any2}},{{$inflow[9]->any2}},{{$inflow[8]->any2}},{{$inflow[7]->any2}},{{$inflow[6]->any2}},{{$inflow[5]->any2}},{{$inflow[4]->any2}},{{$inflow[3]->any2}},{{$inflow[2]->any2}},{{$inflow[1]->any2}},{{$inflow[0]->any2}}">any2</option>
+                                        <option value="{{$inflow[12]->any3}},{{$inflow[11]->any3}},{{$inflow[10]->any3}},{{$inflow[9]->any3}},{{$inflow[8]->any3}},{{$inflow[7]->any3}},{{$inflow[6]->any3}},{{$inflow[5]->any3}},{{$inflow[4]->any3}},{{$inflow[3]->any3}},{{$inflow[2]->any3}},{{$inflow[1]->any3}},{{$inflow[0]->any3}}">any3</option>
+                                        
+                                    </select></div>
+                                    
+                                    <canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Data Now
+                                    </div>
+                                    <div class="card-body">
+                                    <div class="row">
+                                        <!-- <p></p>
+                                        -->
+                                        @foreach ($data as $datas)
+                                            <div class="col mb-2">
+                                            In_Flowrate 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                            {{$datas->In_Flowrate}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->In_Flowrate}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            Out_Flowrate 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                            {{$datas->Out_Flowrate}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->Out_Flowrate}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            In_Tabulizer 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                        {{$datas->In_Tabulizer}}       
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->In_Tabulizer}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            Out_Tabulizer
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                            {{$datas->Out_Tabulizer}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->Out_Tabulizer}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            Turbidity 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                            {{$datas->Turbidity}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->Turbidity}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            NH3 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                            {{$datas->NH3}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->NH3}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            PH_out 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                            {{$datas->PH_out}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->PH_out}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            any1 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                        {{$datas->any1}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->any1}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            any2 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                        {{$datas->any2}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->any2}}' high=7500 low=2500 optimum=5000></meter>
+                                        <div class="col mb-2">
+                                            any3 
+                                        </div>
+                                        <div class="col mb-2"  style="text-align: right;">
+                                        {{$datas->any3}}
+                                        </div>
+                                        <meter max=10000 min=0 value='{{$datas->any3}}' high=7500 low=2500 optimum=5000></meter>
+                                        
+                                        @endforeach
+                                        
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -124,7 +248,68 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{!! asset('sbadmin/js/scripts.js') !!}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="{!! asset('sbadmin/assets/demo/chart-area-demo.js') !!}"></script>
+        <script >
+            // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
+// var label=[]
+// for(let lab of '{{$inflow}}'){
+//   label.push(lab.In_Flowrate)
+// }
+// alert('{{$inflow[0]->datetime}}')
+// Area Chart Example
+var ctx = document.getElementById("myAreaChart");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['{{date("H:i:s",strtotime($inflow[12]->datetime))}}', '{{date("H:i:s",strtotime($inflow[11]->datetime))}}', '{{date("H:i:s",strtotime($inflow[10]->datetime))}}', '{{date("H:i:s",strtotime($inflow[9]->datetime))}}', '{{date("H:i:s",strtotime($inflow[8]->datetime))}}', '{{date("H:i:s",strtotime($inflow[7]->datetime))}}', '{{date("H:i:s",strtotime($inflow[6]->datetime))}}', '{{date("H:i:s",strtotime($inflow[5]->datetime))}}', '{{date("H:i:s",strtotime($inflow[4]->datetime))}}', '{{date("H:i:s",strtotime($inflow[3]->datetime))}}', '{{date("H:i:s",strtotime($inflow[2]->datetime))}}', '{{date("H:i:s",strtotime($inflow[1]->datetime))}}', '{{date("H:i:s",strtotime($inflow[0]->datetime))}}'],
+    // labels: ,
+    datasets: [{
+      label: "Sessions",
+      lineTension: 0.3,
+      backgroundColor: "rgba(2,117,216,0.2)",
+      borderColor: "rgba(2,117,216,1)",
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(2,117,216,1)",
+      pointBorderColor: "rgba(255,255,255,0.8)",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 50,
+      pointBorderWidth: 2,
+      data: ['{{$inflow[12]->In_Flowrate}}', '{{$inflow[11]->In_Flowrate}}', '{{$inflow[10]->In_Flowrate}}', '{{$inflow[9]->In_Flowrate}}', '{{$inflow[8]->In_Flowrate}}', '{{$inflow[7]->In_Flowrate}}', '{{$inflow[6]->In_Flowrate}}', '{{$inflow[5]->In_Flowrate}}', '{{$inflow[4]->In_Flowrate}}', '{{$inflow[3]->In_Flowrate}}', '{{$inflow[2]->In_Flowrate}}', '{{$inflow[1]->In_Flowrate}}', '{{$inflow[0]->In_Flowrate}}'],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 10000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
+        </script>
         <script src="{!! asset('sbadmin/assets/demo/chart-bar-demo.js') !!}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="{!! asset('sbadmin/js/datatables-simple-demo.js') !!}"></script>
@@ -146,7 +331,7 @@
             {data: 'Out_Flowrate', name: 'Out_Flowrate'},
             {data: 'In_Flowrate', name: 'In_Flowrate'},
             {data: 'Out_Tabulizer', name: 'Out_Flowrate'},
-            {data: 'In_Tabulizer', name: 'In_Tabulize'},
+            {data: 'In_Tabulizer', name: 'In_Tabulizer'},
             {data: 'PH_out', name: 'PH_out'},
             {data: 'Turbidity', name: 'Turbidity'},
             {data: 'NH3', name: 'NH3'},
@@ -156,11 +341,16 @@
             
         ]
     });
-      
+    $("p").append('<p>I\'m a paragraph!</p>');
   });
-  $('#table').DataTable( {
-    responsive: true
-} );
+  
+  function leaveChange() {
+        console.log(myLineChart.data.datasets[0].data)
+        console.log(leave.value.split(','))
+        myLineChart.data.datasets[0].data=leave.value.split(',')
+        myLineChart.update()
+            
+}
 </script>
     </body>
 </html>

@@ -50,6 +50,8 @@ class UserController extends Controller
                  })
                  ->make(true);
      }
-       return view('dashboad');
+      $table = Limbah::orderby('datetime','desc')->limit('1')->get();
+      $inflow =Limbah::orderby('datetime','desc')->limit('13')->get();
+       return view('dashboad',['data'=>$table,'inflow'=>$inflow]);
     }
 }
