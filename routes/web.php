@@ -15,7 +15,9 @@ use App\Http\Controllers\LimbahController;
 */
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('dash', ['as' => 'dashboad', 'uses' => 'App\Http\Controllers\UserController@dash']);
+Route::get('dash2', ['as' => 'dashboad2', 'uses' => 'App\Http\Controllers\UserController@dash2']);
 Route::get('limbah', [LimbahController::class, 'index'])->name('limbah.index');
+Route::get('limbah2', [UserController::class, 'dash2'])->name('limbah2.dash2');
 Route::get('/', function () {
     return view('welcome');
 });

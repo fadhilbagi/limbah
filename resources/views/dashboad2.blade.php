@@ -58,7 +58,15 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <!-- <a class="nav-link" href="dash">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard 1
+                            </a>
+                            <a class="nav-link" href="dash2">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                DataTables 2
+                            </a> -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fas fa-tachometer-alt"></i></div>
                                 Dashboard
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -69,9 +77,10 @@
                                     <a class="nav-link" href="dash2">Dashboard 2</a>
                                 </nav>
                             </div>
-                            
                         </div>
+                        
                     </div>
+                    
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         User
@@ -97,16 +106,10 @@
                                     <div class="card-body">
                                     <div class="col mb-2">
                                     <select class="custom-select-sm form-control-sm" id="leave" onchange="leaveChange()">
-                                        <option value="{{$inflow[12]->In_Flowrate}},{{$inflow[11]->In_Flowrate}},{{$inflow[10]->In_Flowrate}},{{$inflow[9]->In_Flowrate}},{{$inflow[8]->In_Flowrate}},{{$inflow[7]->In_Flowrate}},{{$inflow[6]->In_Flowrate}},{{$inflow[5]->In_Flowrate}},{{$inflow[4]->In_Flowrate}},{{$inflow[3]->In_Flowrate}},{{$inflow[2]->In_Flowrate}},{{$inflow[1]->In_Flowrate}},{{$inflow[0]->In_Flowrate}}">In_Flowrate</option>
-                                        <option value="{{$inflow[12]->Out_Flowrate}},{{$inflow[11]->Out_Flowrate}},{{$inflow[10]->Out_Flowrate}},{{$inflow[9]->Out_Flowrate}},{{$inflow[8]->Out_Flowrate}},{{$inflow[7]->Out_Flowrate}},{{$inflow[6]->Out_Flowrate}},{{$inflow[5]->Out_Flowrate}},{{$inflow[4]->Out_Flowrate}},{{$inflow[3]->Out_Flowrate}},{{$inflow[2]->Out_Flowrate}},{{$inflow[1]->Out_Flowrate}},{{$inflow[0]->Out_Flowrate}}">Out_Flowrate</option>
-                                        <option value="{{$inflow[12]->In_Tabulizer}},{{$inflow[11]->In_Tabulizer}},{{$inflow[10]->In_Tabulizer}},{{$inflow[9]->In_Tabulizer}},{{$inflow[8]->In_Tabulizer}},{{$inflow[7]->In_Tabulizer}},{{$inflow[6]->In_Tabulizer}},{{$inflow[5]->In_Tabulizer}},{{$inflow[4]->In_Tabulizer}},{{$inflow[3]->In_Tabulizer}},{{$inflow[2]->In_Tabulizer}},{{$inflow[1]->In_Tabulizer}},{{$inflow[0]->In_Tabulizer}}">In_Tabulizer</option>
-                                        <option value="{{$inflow[12]->Out_Tabulizer}},{{$inflow[11]->Out_Tabulizer}},{{$inflow[10]->Out_Tabulizer}},{{$inflow[9]->Out_Tabulizer}},{{$inflow[8]->Out_Tabulizer}},{{$inflow[7]->Out_Tabulizer}},{{$inflow[6]->Out_Tabulizer}},{{$inflow[5]->Out_Tabulizer}},{{$inflow[4]->Out_Tabulizer}},{{$inflow[3]->Out_Tabulizer}},{{$inflow[2]->Out_Tabulizer}},{{$inflow[1]->Out_Tabulizer}},{{$inflow[0]->Out_Tabulizer}}">Out_Tabulizer</option>
-                                        <option value="{{$inflow[12]->Turbidity}},{{$inflow[11]->Turbidity}},{{$inflow[10]->Turbidity}},{{$inflow[9]->Turbidity}},{{$inflow[8]->Turbidity}},{{$inflow[7]->Turbidity}},{{$inflow[6]->Turbidity}},{{$inflow[5]->Turbidity}},{{$inflow[4]->Turbidity}},{{$inflow[3]->Turbidity}},{{$inflow[2]->Turbidity}},{{$inflow[1]->Turbidity}},{{$inflow[0]->Turbidity}}">Turbidity</option>
-                                        <option value="{{$inflow[12]->NH3}},{{$inflow[11]->NH3}},{{$inflow[10]->NH3}},{{$inflow[9]->NH3}},{{$inflow[8]->NH3}},{{$inflow[7]->NH3}},{{$inflow[6]->NH3}},{{$inflow[5]->NH3}},{{$inflow[4]->NH3}},{{$inflow[3]->NH3}},{{$inflow[2]->NH3}},{{$inflow[1]->NH3}},{{$inflow[0]->NH3}}">NH3</option>
-                                        <option value="{{$inflow[12]->PH_out}},{{$inflow[11]->PH_out}},{{$inflow[10]->PH_out}},{{$inflow[9]->PH_out}},{{$inflow[8]->PH_out}},{{$inflow[7]->PH_out}},{{$inflow[6]->PH_out}},{{$inflow[5]->PH_out}},{{$inflow[4]->PH_out}},{{$inflow[3]->PH_out}},{{$inflow[2]->PH_out}},{{$inflow[1]->PH_out}},{{$inflow[0]->PH_out}}">PH_out</option>
-                                        <option value="{{$inflow[12]->any1}},{{$inflow[11]->any1}},{{$inflow[10]->any1}},{{$inflow[9]->any1}},{{$inflow[8]->any1}},{{$inflow[7]->any1}},{{$inflow[6]->any1}},{{$inflow[5]->any1}},{{$inflow[4]->any1}},{{$inflow[3]->any1}},{{$inflow[2]->any1}},{{$inflow[1]->any1}},{{$inflow[0]->any1}}">any1</option>
-                                        <option value="{{$inflow[12]->any2}},{{$inflow[11]->any2}},{{$inflow[10]->any2}},{{$inflow[9]->any2}},{{$inflow[8]->any2}},{{$inflow[7]->any2}},{{$inflow[6]->any2}},{{$inflow[5]->any2}},{{$inflow[4]->any2}},{{$inflow[3]->any2}},{{$inflow[2]->any2}},{{$inflow[1]->any2}},{{$inflow[0]->any2}}">any2</option>
-                                        <option value="{{$inflow[12]->any3}},{{$inflow[11]->any3}},{{$inflow[10]->any3}},{{$inflow[9]->any3}},{{$inflow[8]->any3}},{{$inflow[7]->any3}},{{$inflow[6]->any3}},{{$inflow[5]->any3}},{{$inflow[4]->any3}},{{$inflow[3]->any3}},{{$inflow[2]->any3}},{{$inflow[1]->any3}},{{$inflow[0]->any3}}">any3</option>
+                                        <option value="{{$inflow[12]->cod}},{{$inflow[11]->cod}},{{$inflow[10]->cod}},{{$inflow[9]->cod}},{{$inflow[8]->cod}},{{$inflow[7]->cod}},{{$inflow[6]->cod}},{{$inflow[5]->cod}},{{$inflow[4]->cod}},{{$inflow[3]->cod}},{{$inflow[2]->cod}},{{$inflow[1]->cod}},{{$inflow[0]->cod}}">COD</option>
+                                        <option value="{{$inflow[12]->ph}},{{$inflow[11]->ph}},{{$inflow[10]->ph}},{{$inflow[9]->ph}},{{$inflow[8]->ph}},{{$inflow[7]->ph}},{{$inflow[6]->ph}},{{$inflow[5]->ph}},{{$inflow[4]->ph}},{{$inflow[3]->ph}},{{$inflow[2]->ph}},{{$inflow[1]->ph}},{{$inflow[0]->ph}}">PH</option>
+                                        <option value="{{$inflow[12]->tss}},{{$inflow[11]->tss}},{{$inflow[10]->tss}},{{$inflow[9]->tss}},{{$inflow[8]->tss}},{{$inflow[7]->tss}},{{$inflow[6]->tss}},{{$inflow[5]->tss}},{{$inflow[4]->tss}},{{$inflow[3]->tss}},{{$inflow[2]->tss}},{{$inflow[1]->tss}},{{$inflow[0]->tss}}">TSS</option>
+                                        <option value="{{$inflow[12]->ammonium}},{{$inflow[11]->ammonium}},{{$inflow[10]->ammonium}},{{$inflow[9]->ammonium}},{{$inflow[8]->ammonium}},{{$inflow[7]->ammonium}},{{$inflow[6]->ammonium}},{{$inflow[5]->ammonium}},{{$inflow[4]->ammonium}},{{$inflow[3]->ammonium}},{{$inflow[2]->ammonium}},{{$inflow[1]->ammonium}},{{$inflow[0]->ammonium}}">Ammonium</option>
                                         
                                     </select></div>
                                     
@@ -125,75 +128,33 @@
                                         -->
                                         @foreach ($data as $datas)
                                             <div class="col mb-2">
-                                            In_Flowrate 
+                                            COD
                                         </div>
                                         <div class="col mb-2"  style="text-align: right;">
-                                            {{$datas->In_Flowrate}}
+                                            {{$datas->cod}} 
                                         </div>
-                                        <meter max=10000 min=0 value='{{$datas->In_Flowrate}}' high=7500 low=2500 optimum=5000></meter>
+                                        <meter max=5000 min=0 value='{{$datas->cod}}' high=4000 low=2000 optimum=5000></meter>
                                         <div class="col mb-2">
-                                            Out_Flowrate 
+                                            PH
                                         </div>
                                         <div class="col mb-2"  style="text-align: right;">
-                                            {{$datas->Out_Flowrate}}
+                                            {{$datas->ph}}
                                         </div>
-                                        <meter max=10000 min=0 value='{{$datas->Out_Flowrate}}' high=7500 low=2500 optimum=5000></meter>
+                                        <meter max=14 min=0 value='{{$datas->ph}}' high=8 low=6 optimum=7></meter>
                                         <div class="col mb-2">
-                                            In_Tabulizer 
+                                            TSS
                                         </div>
                                         <div class="col mb-2"  style="text-align: right;">
-                                        {{$datas->In_Tabulizer}}       
+                                        {{$datas->tss}}       
                                         </div>
-                                        <meter max=10000 min=0 value='{{$datas->In_Tabulizer}}' high=7500 low=2500 optimum=5000></meter>
+                                        <meter max=3000 min=0 value='{{$datas->tss}}' high=2500 low=1000 optimum=2000></meter>
                                         <div class="col mb-2">
-                                            Out_Tabulizer
+                                            Ammonium
                                         </div>
                                         <div class="col mb-2"  style="text-align: right;">
-                                            {{$datas->Out_Tabulizer}}
+                                            {{$datas->ammonium}}
                                         </div>
-                                        <meter max=10000 min=0 value='{{$datas->Out_Tabulizer}}' high=7500 low=2500 optimum=5000></meter>
-                                        <div class="col mb-2">
-                                            Turbidity 
-                                        </div>
-                                        <div class="col mb-2"  style="text-align: right;">
-                                            {{$datas->Turbidity}}
-                                        </div>
-                                        <meter max=10000 min=0 value='{{$datas->Turbidity}}' high=7500 low=2500 optimum=5000></meter>
-                                        <div class="col mb-2">
-                                            NH3 
-                                        </div>
-                                        <div class="col mb-2"  style="text-align: right;">
-                                            {{$datas->NH3}}
-                                        </div>
-                                        <meter max=10000 min=0 value='{{$datas->NH3}}' high=7500 low=2500 optimum=5000></meter>
-                                        <div class="col mb-2">
-                                            PH_out 
-                                        </div>
-                                        <div class="col mb-2"  style="text-align: right;">
-                                            {{$datas->PH_out}}
-                                        </div>
-                                        <meter max=10000 min=0 value='{{$datas->PH_out}}' high=7500 low=2500 optimum=5000></meter>
-                                        <div class="col mb-2">
-                                            any1 
-                                        </div>
-                                        <div class="col mb-2"  style="text-align: right;">
-                                        {{$datas->any1}}
-                                        </div>
-                                        <meter max=10000 min=0 value='{{$datas->any1}}' high=7500 low=2500 optimum=5000></meter>
-                                        <div class="col mb-2">
-                                            any2 
-                                        </div>
-                                        <div class="col mb-2"  style="text-align: right;">
-                                        {{$datas->any2}}
-                                        </div>
-                                        <meter max=10000 min=0 value='{{$datas->any2}}' high=7500 low=2500 optimum=5000></meter>
-                                        <div class="col mb-2">
-                                            any3 
-                                        </div>
-                                        <div class="col mb-2"  style="text-align: right;">
-                                        {{$datas->any3}}
-                                        </div>
-                                        <meter max=10000 min=0 value='{{$datas->any3}}' high=7500 low=2500 optimum=5000></meter>
+                                        <meter max=10000 min=0 value='{{$datas->ammonium}}' high=7500 low=2500 optimum=5000></meter>
                                         
                                         @endforeach
                                         
@@ -214,16 +175,10 @@
         <thead>
             <tr>
             <th>Datetime</th>
-                <th>Out_Flowrate</th>
-                <th>In_Flowrate</th>
-                <th>Out_Tabulizer</th>
-                <th>In_Tabulizer</th>
-                <th>Turbidity</th>
-                <th>NH3</th>
-                <th>PH_out</th>
-                <th>any1</th>
-                <th>any2</th>
-                <th>any3</th>
+                <th>COD</th>
+                <th>PH</th>
+                <th>TSS</th>
+                <th>Ammonium</th>
             </tr>
         </thead>
         <tbody>
@@ -279,7 +234,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 50,
       pointBorderWidth: 2,
-      data: ['{{$inflow[12]->In_Flowrate}}', '{{$inflow[11]->In_Flowrate}}', '{{$inflow[10]->In_Flowrate}}', '{{$inflow[9]->In_Flowrate}}', '{{$inflow[8]->In_Flowrate}}', '{{$inflow[7]->In_Flowrate}}', '{{$inflow[6]->In_Flowrate}}', '{{$inflow[5]->In_Flowrate}}', '{{$inflow[4]->In_Flowrate}}', '{{$inflow[3]->In_Flowrate}}', '{{$inflow[2]->In_Flowrate}}', '{{$inflow[1]->In_Flowrate}}', '{{$inflow[0]->In_Flowrate}}'],
+      data: ['{{$inflow[12]->cod}}', '{{$inflow[11]->cod}}', '{{$inflow[10]->cod}}', '{{$inflow[9]->cod}}', '{{$inflow[8]->cod}}', '{{$inflow[7]->cod}}', '{{$inflow[6]->cod}}', '{{$inflow[5]->cod}}', '{{$inflow[4]->cod}}', '{{$inflow[3]->cod}}', '{{$inflow[2]->cod}}', '{{$inflow[1]->cod}}', '{{$inflow[0]->cod}}'],
     }],
   },
   options: {
@@ -298,8 +253,8 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 10000,
-          maxTicksLimit: 5
+          max: 5000,
+          maxTicksLimit: 6
         },
         gridLines: {
           color: "rgba(0, 0, 0, .125)",
@@ -322,7 +277,7 @@ var myLineChart = new Chart(ctx, {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('limbah.index') }}",
+        ajax: "{{ route('limbah2.dash2') }}",
         columns: [{
                 data: 'datetime',
                     type: 'num',
@@ -331,16 +286,10 @@ var myLineChart = new Chart(ctx, {
                         sort: 'timestamp'
                    }
             },
-            {data: 'Out_Flowrate', name: 'Out_Flowrate'},
-            {data: 'In_Flowrate', name: 'In_Flowrate'},
-            {data: 'Out_Tabulizer', name: 'Out_Flowrate'},
-            {data: 'In_Tabulizer', name: 'In_Tabulizer'},
-            {data: 'PH_out', name: 'PH_out'},
-            {data: 'Turbidity', name: 'Turbidity'},
-            {data: 'NH3', name: 'NH3'},
-            {data: 'any1', name: 'any1'},
-            {data: 'any2', name: 'any2'},
-            {data: 'any3', name: 'any3'},
+            {data: 'cod', name: 'cod'},
+            {data: 'ph', name: 'ph'},
+            {data: 'tss', name: 'tss'},
+            {data: 'ammonium', name: 'ammonium'},
             
         ]
     });
@@ -348,10 +297,25 @@ var myLineChart = new Chart(ctx, {
   });
   
   function leaveChange() {
+        var e = document. getElementById("leave");
         console.log(myLineChart.data.datasets[0].data)
-        console.log(leave.value.split(','))
+        console.log(myLineChart.options.scales.yAxes[0].ticks.max)
+        let select=e.options[e.selectedIndex].text
+        if(select=="PH"){
+            myLineChart.options.scales.yAxes[0].ticks.max=14
+        }
+        else if(select=="COD"){
+            myLineChart.options.scales.yAxes[0].ticks.max=5000
+        }
+        else if(select=="TSS"){
+            myLineChart.options.scales.yAxes[0].ticks.max=3000
+        }
+        else if(select=="Ammonium"){
+            myLineChart.options.scales.yAxes[0].ticks.max=10000
+        }
         myLineChart.data.datasets[0].data=leave.value.split(',')
         myLineChart.update()
+        
             
 }
 </script>
